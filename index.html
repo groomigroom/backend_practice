@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <style>
+        header {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <header onclick="showPage('main')"></header>
+    <div class="page_select" id="main" style="display: block">
+        <form action="./result.html" method="get">
+            <label for="id">아이디</label>
+            <input type="text" id="id" name="id">
+            <label for="password">비번</label>
+            <input type="password" id="password" name="password">
+            <input type="submit">
+        </form>
+        <button onclick="showPage('enter_member')">회원가입</button>
+    </div>
+    <!--회원가입 페이지-->
+    <div class="page_select" id="enter_member" style="display: none">
+        <form action="./result.html" method="get">
+            <label for="id">아이디</label>
+            <input type="text" id="id" name="id">
+            <label for="password">비번</label>
+            <input type="password" id="password" name="password">
+            <input type="submit">
+        </form>
+    </div>
+
+    <script>
+        function showPage(page_for_show) {
+            document.querySelectorAll('.page_select').forEach(function (pa) {
+                pa.style.display = 'none';
+                document.getElementById(page_for_show).style.display = 'block';
+            });
+
+            location.hash = page_for_show;
+        }
+    </script>
+</body>
+
+</html>
